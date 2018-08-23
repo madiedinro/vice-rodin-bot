@@ -183,8 +183,8 @@ async def manager():
     await register(reg)
     for n in count():
         await asyncio.sleep(randrange(60*20, 60*30))
-        for chat_id in state.chats.keys():
+        keys = list(state.chats.keys())
+        for chat_id in keys:
             last_msg = state.chats.pop(chat_id)
             if last_msg + duration < ts():
                 send_tg_msg(rand_word(some), chat_id)
-
