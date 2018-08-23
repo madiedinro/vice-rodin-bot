@@ -145,13 +145,13 @@ async def main(data, **params):
 
 async def send_good_boy(chat):
     try:
-        res = await query_url(SEND, msg('Молодец!'))
+        res = await query_url(SEND, send_tg_msg('Молодец!', chat.id))
         await asyncio.sleep(3)
-        res = await query_url(SEND, msg('А что делают молодцы?'))
+        res = await query_url(SEND, send_tg_msg('А что делают молодцы?', chat.id))
         await asyncio.sleep(3)
-        res = await query_url(SEND, msg('Правильно!'))
+        res = await query_url(SEND, send_tg_msg('Правильно!', chat.id))
         await asyncio.sleep(1)
-        res = await query_url(SEND, msg('Сосут концы!'))
+        res = await query_url(SEND, send_tg_msg('Сосут концы!', chat.id))
     except Exception:
         logger.exception('goodboy')
 
