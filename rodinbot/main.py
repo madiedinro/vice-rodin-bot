@@ -1,5 +1,5 @@
 from itertools import count
-from band import dome, logger, app
+from band import dome, logger, app, settings
 import aiohttp
 import asyncio
 from prodict import Prodict
