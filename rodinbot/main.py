@@ -48,8 +48,6 @@ def ts():
 """
 СОСИ ХУЙ НЕ ПСИХУЙ
 ПОДНИМИ ОБЕ РУКИ @ А ТЕПЕРЬ ОПУСТИ ТУ, КОТОРОЙ ДРОЧИШЬ
-
-
 ТВОИ ГУБКИ ПО МОЕЙ ЗАЛУПКЕ
 ХУЁВ ТЕБЕ ПАНАМУ
 ХУЙ ЗАВЕРНУТЫЙ В ГАЗЕТУ ЗАМЕНЯЕТ СИГАРЕТУ
@@ -147,29 +145,13 @@ async def main(data, **params):
 
 async def send_good_boy(chat):
     try:
-        msg = {
-            'method': SEND,
-            'chat_id': chat['id'],
-            'text': 'Молодец!'}
-        res = await query_url(SEND, msg)
+        res = await query_url(SEND, msg('Молодец!'))
         await asyncio.sleep(3)
-        msg = {
-            'method': SEND,
-            'chat_id': chat['id'],
-            'text': 'А что делают молодцы?'}
-        res = await query_url(SEND, msg)
+        res = await query_url(SEND, msg('А что делают молодцы?'))
         await asyncio.sleep(3)
-        msg = {
-            'method': SEND,
-            'chat_id': chat['id'],
-            'text': 'Правильно!'}
-        res = await query_url(SEND, msg)
+        res = await query_url(SEND, msg('Правильно!'))
         await asyncio.sleep(1)
-        msg = {
-            'method': SEND,
-            'chat_id': chat['id'],
-            'text': 'Сосут концы'}
-        res = await query_url(SEND, msg)
+        res = await query_url(SEND, msg('Сосут концы!'))
     except Exception:
         logger.exception('goodboy')
 
@@ -195,6 +177,7 @@ async def query_url(method, params={}):
             return await r.json()
 
 
+# Turet syndrome emulation
 @dome.tasks.add
 async def manager():
     await register(reg)
@@ -205,11 +188,3 @@ async def manager():
             if last_msg + duration < ts():
                 send_tg_msg(rand_word(some), chat_id)
 
-
-
-"""
-Useful links:
-https://habr.com/post/322078/
-#https://docs.aiohttp.org/en/stable/client_quickstart.html
-#https://core.telegram.org/bots/api#message
-"""
