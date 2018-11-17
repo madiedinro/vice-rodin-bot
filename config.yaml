@@ -4,4 +4,25 @@ env: {{ ENV }}
 listen: "{{HOST|default('0.0.0.0')}}:{{PORT}}"
 redis_dsn: "{{REDIS_DSN|default('redis://redis:6379')}}"
 
-token: your_token_here
+user: bigdatalittledickbot
+hook:
+    url: https://{{DOMAIN}}/rodinbot/main
+
+
+query: https://api.telegram.org/bot{{TOKEN}}/{method}
+boss: {{BOSS}}
+
+msg:
+    notify:
+        - "{mention}, я жду твой рассказ о себе"
+        - "{mention} это переходит все границы! Теперь жду с тегом #me!"
+        - "{mention} еще немного и тебе конец..."
+        - "Пока-пока {mention}!"
+    nothing: Мне нечего сказать
+    hello: >
+        Привет, {mention}! Откуда ты,
+        чем занимаешься, что интересует.
+
+    ok_boss: Да босс!
+    old_silent: >
+        Это и старых молчунов касается! Скоро возьмусь за вас!
